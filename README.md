@@ -26,3 +26,7 @@ The build is minified and the filenames include the hashes.
 
 ### Built With
 * React
+
+
+### Helper
+* Single Element CSS Spinners (https://projects.lukehaas.me/css-loaders/)
