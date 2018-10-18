@@ -1,7 +1,7 @@
 import React from "react";
 
 const cardTitle = props => {
-  return <div>{props.title}</div>;
+  return <h4>{props.title}</h4>;
 };
 
 export default cardTitle;

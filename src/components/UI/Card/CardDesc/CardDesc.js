@@ -1,7 +1,7 @@
 import React from "react";
 
 const cardDesc = props => {
-  return <div>{props.desc}</div>;
+  return <p>{props.desc}</p>;
 };
 
 export default cardDesc;
