@@ -2,10 +2,13 @@ import React, { Component } from "react";
 import axios from "./axios/axios-openweather";
 
 import Spinner from "./components/UI/Spinner/Spinner";
-import Card from "./components/UI/Card/Card";
+import Weather from "./components/Weater/Weather";
+
 class App extends Component {
   state = {
-    forecastList: [],
+    weather: [],
+    wind: {},
+    clouds: {},
     isLoaded: false
   };
 
@@ -18,7 +21,8 @@ class App extends Component {
         }
       })
       .then(res => {
-        this.setState({ forecastList: res.data.list });
+        let weather = res.data.list.map((e) => e.weather[0])
+        this.setState({ weather });
       })
       .catch(err => console.log(err))
       .finally(() => {
@@ -27,19 +31,12 @@ class App extends Component {
   }
 
   render() {
-    let data = <Spinner />;
+    let weather = <Spinner />;
     if (this.state.isLoaded) {
-      data = this.state.forecastList.map(e => (
-        <Card
-          key={e.id}
-          title={e.weather[0].main}
-          image={`http://openweathermap.org/img/w/${e.weather[0].icon}.png`}
-          desc={e.weather[0].description}
-        />
-      ));
+      weather = <Weather weather={this.state.weather}></Weather>
     }
 
-    return <div>{data}</div>;
+    return <div>{weather}</div>
   }
 }
 
