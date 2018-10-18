@@ -13,11 +13,13 @@ class App extends Component {
   };
 
   componentDidMount() {
+  
     axios
-      .get("/find", {
+      .get("/forecast", {
         params: {
-          q: "Dublin",
-          appid: process.env.REACT_APP_API_KEY
+          q: "Dublin,IE",
+          cnt: 5,
+          APPID: process.env.REACT_APP_API_KEY
         }
       })
       .then(res => {
