@@ -1,8 +1,6 @@
 import React from "react";
 
 import Card from "../UI/Card/Card";
-import Input from "../UI/Input/Input";
-
 import classes from "./Weather.module.scss";
 
 const weather = props => {
@@ -18,12 +16,7 @@ const weather = props => {
     </div>
   ));
 
-  return (
-    <div>
-      <Input label="Enter City"/>
-      <div className={classes.Weather}>{weather}</div>
-    </div>
-  );
+  return <div className={classes.Weather}>{weather}</div>;
 };
 
 export default weather;

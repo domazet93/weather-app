@@ -1,16 +1,19 @@
 .Button {
+  font: inherit;
+  cursor: pointer;
   height: 35px;
   border-radius: 3px;
   border: none;
-  font: inherit;
   outline: none;
   color: white;
+  &:disabled {
+    opacity: .6;
+    cursor: not-allowed;    
+  }
 }
-
 .Success {
   background: #469ab5;
 }
-
 .Danger {
   color: #c52d2d;
 }

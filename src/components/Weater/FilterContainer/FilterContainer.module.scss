@@ -1,0 +1,19 @@
+.FilterContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+.InputText {
+  flex: 2;
+}
+.InputNum {
+  flex: 1;
+}
+.Button {
+  display: flex;
+  align-self: flex-end;
+  flex: 1;
+  button {
+    width: 100%;
+    margin: 10px;
+  }
+}
