@@ -1,6 +1,4 @@
 $weather_card_margin: 10px;
-
-
 .Weather {
   display: flex;
   flex-wrap: wrap;
@@ -8,7 +6,7 @@ $weather_card_margin: 10px;
     margin: $weather_card_margin;
     @media (min-width: 800px) {
       flex: 1;
-    } 
+    }
     @media (max-width: 800px) {
       flex-basis: calc(50% - #{2 * $weather_card_margin});
     }

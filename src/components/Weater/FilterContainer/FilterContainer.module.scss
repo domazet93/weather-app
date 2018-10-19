@@ -2,12 +2,11 @@
   display: flex;
   flex-wrap: wrap;
 }
+
 .InputText {
   flex: 2;
 }
-.InputNum {
-  flex: 1;
-}
+
 .Button {
   display: flex;
   align-self: flex-end;

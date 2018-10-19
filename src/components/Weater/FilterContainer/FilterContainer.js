@@ -7,16 +7,11 @@ import Button from "../../UI/Button/Button";
 
 class filterContainer extends Component {
   state = {
-    q: "",
-    cnt: 5
+    q: ""
   };
 
   handleQueryChange = event => {
     this.setState({ q: event.target.value });
-  };
-
-  handleNumOfDaysChange = event => {
-    this.setState({ cnt: event.target.value });
   };
 
   render() {
@@ -27,14 +22,6 @@ class filterContainer extends Component {
             label="Enter City"
             type="text"
             changed={this.handleQueryChange}
-          />
-        </div>
-        <div className={classes.InputText}>
-          <Input
-            label="Number of Days"
-            type="number"
-            className={classes.InputNum}
-            changed={this.handleNumOfDaysChange}
           />
         </div>
         <div className={classes.Button}>

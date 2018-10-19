@@ -14,7 +14,6 @@ class App extends Component {
     isLoading: false,
     queryParams: {
       q: "Dublin,IE",
-      cnt: 5
     }
   };
 
@@ -32,7 +31,7 @@ class App extends Component {
           }
         })
         .then(res => {
-          let weather = res.data.list.map(e => e.weather[0]);
+          const weather = res.data.list;
           this.setState({ weather });
         })
         .catch(err => console.log(err))
