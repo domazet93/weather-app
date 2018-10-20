@@ -1,8 +1,10 @@
 @import "../../../style/variables.scss";
+@import  "../../../style/mixins.scss";
 
 .Spinner,
 .Spinner:after {
-  border-radius: 50%;
+  @include border-radius(50%);
+
   width: 10em;
   height: 10em;
 }

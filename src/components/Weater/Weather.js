@@ -36,7 +36,7 @@ const weather = props => {
           key={index}
           title={time}
           image={`http://openweathermap.org/img/w/${e.weather[0].icon}.png`}
-          desc={e.weather[0].icon}
+          desc={e.weather[0].description}
         />
       </div>
     );

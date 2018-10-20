@@ -14,6 +14,7 @@ class filterContainer extends Component {
     this.setState({ q: event.target.value });
   };
 
+
   render() {
     return (
       <div className={classes.FilterContainer}>

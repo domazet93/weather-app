@@ -17,11 +17,11 @@ class App extends Component {
   };
 
   componentDidMount() {
-    this.getWeatherData(this.state.queryParams);
+    this.getWeatherData();
   }
 
   getWeatherData = queryParams => {
-    this.setState({ isLoading: false, weather: [] }, () => {
+    this.setState({ isLoading: true, weather: [], queryParams }, () => {
       axios
         .get("/forecast", {
           params: {
@@ -35,14 +35,14 @@ class App extends Component {
         })
         .catch(error => null)
         .finally(() => {
-          this.setState({ isLoading: true });
+          this.setState({ isLoading: false });
         });
     });
   };
 
   render() {
     let weather = <Spinner />;
-    if (this.state.isLoading) {
+    if (!this.state.isLoading) {
       weather = this.state.weather.length ? (
         <Weather weather={this.state.weather} />
       ) : (
