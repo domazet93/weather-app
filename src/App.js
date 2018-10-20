@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "./axios/axios-openweather";
 
 import Spinner from "./components/UI/Spinner/Spinner";
+import NoData from "./components/UI/NoData/NoData";
 
 import Weather from "./components/Weater/Weather";
 import FilterContainer from "./components/Weater/FilterContainer/FilterContainer";
@@ -9,11 +10,9 @@ import FilterContainer from "./components/Weater/FilterContainer/FilterContainer
 class App extends Component {
   state = {
     weather: [],
-    wind: {},
-    clouds: {},
     isLoading: false,
     queryParams: {
-      q: "Dublin,IE",
+      q: ""
     }
   };
 
@@ -22,7 +21,7 @@ class App extends Component {
   }
 
   getWeatherData = queryParams => {
-    this.setState({ isLoading: false }, () => {
+    this.setState({ isLoading: false, weather: [] }, () => {
       axios
         .get("/forecast", {
           params: {
@@ -34,7 +33,7 @@ class App extends Component {
           const weather = res.data.list;
           this.setState({ weather });
         })
-        .catch(err => console.log(err))
+        .catch(error => null)
         .finally(() => {
           this.setState({ isLoading: true });
         });
@@ -44,7 +43,11 @@ class App extends Component {
   render() {
     let weather = <Spinner />;
     if (this.state.isLoading) {
-      weather = <Weather weather={this.state.weather} />;
+      weather = this.state.weather.length ? (
+        <Weather weather={this.state.weather} />
+      ) : (
+        <NoData />
+      );
     }
 
     return (

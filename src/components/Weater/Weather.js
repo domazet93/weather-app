@@ -1,6 +1,7 @@
 import React from "react";
 
 import Card from "../UI/Card/Card";
+
 import classes from "./Weather.module.scss";
 import moment from "moment";
 
@@ -40,7 +41,6 @@ const weather = props => {
       </div>
     );
   });
-
   return <div className={classes.Weather}>{weather}</div>;
 };
 
