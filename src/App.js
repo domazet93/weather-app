@@ -17,6 +17,7 @@ class App extends Component {
   };
 
   componentDidMount() {
+    if(!this.state.queryParams.q) { return; }
     this.getWeatherData();
   }
 
